@@ -1,7 +1,7 @@
 # autorest-jackson
 
 Use:
-```java
+```xml
 <dependency>
     <groupId>org.dominokit</groupId>
     <artifactId>autorest-jackson</artifactId>
@@ -15,8 +15,23 @@ Use:
 </dependency>
 ```
 
+make sure to define this repository in your pom.xml
+```xml
+<repositories>
+    <repository>
+        <id>sonatype-snapshots-repo</id>
+        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+            <checksumPolicy>fail</checksumPolicy>
+        </snapshots>
+    </repository>
+</repositories>
+```
+
 Add the jackson-registration-apt dependency:
-```java
+```xml
 <dependency>
     <groupId>org.dominokit.jacksonapt</groupId>
     <artifactId>jackson-registration-apt</artifactId>
@@ -26,7 +41,7 @@ Add the jackson-registration-apt dependency:
 ```
 
 and make sure that jackson-apt-processor
-```java
+```xml
 <dependency>
     <groupId>org.dominokit.jacksonapt</groupId>
     <artifactId>jackson-apt-processor</artifactId>
