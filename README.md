@@ -1,10 +1,12 @@
 # autorest-jackson
 
-Use:
+#### How to use:
+
+* First add the dependency for *domino-autorest-jackson*
 ```xml
 <dependency>
     <groupId>org.dominokit</groupId>
-    <artifactId>autorest-jackson</artifactId>
+    <artifactId>domino-autorest-jackson</artifactId>
     <version>1.0-SNAPSHOT</version>
 </dependency>
 <dependency>
@@ -15,7 +17,7 @@ Use:
 </dependency>
 ```
 
-make sure to define this repository in your pom.xml
+* Add snapshots repository in your pom.xml
 ```xml
 <repositories>
     <repository>
@@ -30,17 +32,7 @@ make sure to define this repository in your pom.xml
 </repositories>
 ```
 
-Add the jackson-registration-apt dependency:
-```xml
-<dependency>
-    <groupId>org.dominokit.jacksonapt</groupId>
-    <artifactId>jackson-registration-apt</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <scope>provided</scope>
-</dependency>
-```
-
-and make sure that jackson-apt-processor
+* Add *jackson-apt-processor* dependency
 ```xml
 <dependency>
     <groupId>org.dominokit.jacksonapt</groupId>
@@ -50,10 +42,12 @@ and make sure that jackson-apt-processor
 </dependency>
 ```
 
-Add the module in your *.gwt.xml
-`<inherits name="org.dominokit.autorest.jackson.JacksonAutoRest"/>`
+* Add the module in your **.gwt.xml*
+```xml
+<inherits name="org.dominokit.autorest.jackson.JacksonAutoRest"/>
+```
 
-All you need to do is to create package-info.java file and annotate it with `@JSONRegistration` annotation passing your module name:
+* Define package-info.java file and annotate it with `@JSONRegistration` annotation passing your module name:
 ```java
 @JSONRegistration("Foo")
 package com.foo;
@@ -61,7 +55,7 @@ package com.foo;
 import org.dominokit.jacksonapt.annotation.JSONRegistration;
 ```
 
-and then use it as follows:
+* Use `JacksonResourceBuilder` and pass it the generated registry as follows:
 
 ```java
 new JacksonResourceBuilder(new FooJsonRegistry());
