@@ -1,4 +1,6 @@
-# autorest-jackson
+# domino-autorest-jackson
+
+The aim of this project is to integrate [gwt-jackson-apt](https://github.com/DominoKit/gwt-jackson-apt) with [autorest](https://github.com/intendia-oss/autorest).
 
 #### How to use:
 
