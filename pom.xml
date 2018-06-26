@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.dominokit</groupId>
-    <artifactId>autorest-jackson</artifactId>
+    <artifactId>domino-autorest-jackson</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>AutoREST :: Jackson</name>
 
@@ -14,10 +14,29 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
+    <licenses>
+        <license>
+            <name>Apache 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Rafat J. Al-Barouki</name>
+            <email>rafat.albarouki@gmail.com</email>
+        </developer>
+    </developers>
+
+    <issueManagement>
+        <url>https://github.com/DominoKit/domino-autorest-jackson/issues</url>
+        <system>GitHub Issues</system>
+    </issueManagement>
+
     <scm>
-        <connection>scm:git:https://github.com/DominoKit/autorest-jackson.git</connection>
-        <developerConnection>scm:git:git@github.com:DominoKit/autorest-jackson.git</developerConnection>
-        <url>https://github.com/DominoKit/autorest-jackson</url>
+        <connection>scm:git:https://github.com/DominoKit/domino-autorest-jackson.git</connection>
+        <developerConnection>scm:git:git@github.com:DominoKit/domino-autorest-jackson.git</developerConnection>
+        <url>https://github.com/DominoKit/domino-autorest-jackson</url>
     </scm>
 
     <distributionManagement>
@@ -101,6 +120,31 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.8</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
                 </configuration>
             </plugin>
         </plugins>
